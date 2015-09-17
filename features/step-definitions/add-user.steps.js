@@ -50,8 +50,16 @@ module.exports = function() {
             .setValue('#editEmployeeTitle', 'Manager')
             .setValue('#editEmployeeName', 'Kristopher William Thieler')
             .submitForm('#editEmployeeSubmit')
-            //.saveScreenshot('SnapShots/AddEmployee.png') // Save the screenshot to disk
+            .saveScreenshot(function (png) {
+            var fs = require('fs');
+
+            //var base64Image = new Buffer(png, 'binary').toString('base64');
+            var decodedImage = new Buffer(png, 'base64').toString('binary');
+
+            scenario.attach(decodedImage, 'image/png');
+            })// Save the screenshot to disk
             .end();
+
         callback();
     });
 
