@@ -6,7 +6,7 @@
 # 3. Build container: docker build .
 
 
-FROM node:0.10
+FROM 192.168.254.1/node:0.10
 
 EXPOSE 3000
 
@@ -14,11 +14,8 @@ EXPOSE 3000
 ADD ./package.json /tmp/package.json
 
 RUN cd /tmp && \
-    npm install && \
-    npm install -g nodemon && \
-    npm install express \
-    npm install mongodb \
-    npm install stylus
+    npm install
+
 
 RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
@@ -27,4 +24,4 @@ ADD . /opt/app
 WORKDIR /opt/app
 
 # Execute nodemon on the /app/index.js file. nodemon will poll the file for updates.
-CMD ["nodemon", "/opt/app/app.js"]
+CMD ["node", "/opt/app/app.js"]

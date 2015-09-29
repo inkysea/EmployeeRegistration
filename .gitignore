@@ -85,3 +85,6 @@ crashlytics-build.properties
 SnapShots
 DockerCerts
 selenium-server-standalone-2.47.0.jar
+
+npm-debug.log
+EmployeeRegistration.iml

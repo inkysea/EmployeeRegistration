@@ -1,0 +1,11 @@
+mongodb:
+    image: 192.168.254.1/mongo
+    ports:
+        - "27017:27017"
+
+nodejs:
+    build: .
+    ports:
+        - "3000:3000"
+
+

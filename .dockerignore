@@ -2,9 +2,10 @@
 
 # Node.js
 /node_modules
+node_modules/
 
 # Vagrant
-/.vagrant
+.vagrant/
 
 /DockerCerts
 
@@ -22,3 +23,5 @@ Makefile
 docker-compose.yml
 
 /SnapShots
+
+/features

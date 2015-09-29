@@ -29,7 +29,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-var employeeProvider= new EmployeeProvider('192.168.206.148', 27017);
+var employeeProvider= new EmployeeProvider('172.17.42.1', 27017);
 
 //Routes
 

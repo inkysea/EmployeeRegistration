@@ -39,6 +39,11 @@ module.exports = function() {
         // WebElement downloadLink = downloadTab.findElement(By.tagName("a"));
         // downloadLink.click();
 
+
+        var timestamp = process.hrtime()
+        var screenshotPath = 'SnapShots/error-report-' + timestamp +'.jpg'
+
+
         webdriverio
             .remote(options)
             .init()
@@ -50,14 +55,9 @@ module.exports = function() {
             .setValue('#editEmployeeTitle', 'Manager')
             .setValue('#editEmployeeName', 'Kristopher William Thieler')
             .submitForm('#editEmployeeSubmit')
-            .saveScreenshot(function (png) {
-            var fs = require('fs');
-
-            //var base64Image = new Buffer(png, 'binary').toString('base64');
-            var decodedImage = new Buffer(png, 'base64').toString('binary');
-
-            scenario.attach(decodedImage, 'image/png');
-            })// Save the screenshot to disk
+            .saveScreenshot(screenshotPath,function(err, result) {
+                console.log("screenshot saved");
+            })
             .end();
 
         callback();
